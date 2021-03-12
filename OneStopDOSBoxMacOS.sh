@@ -965,7 +965,7 @@ cd ../..
 read "?Open folder $DOSBOXFOLDER/src, where you can run $APPNAME.app (y/N)? " 
 	echo 
 	if [[ $REPLY =~ ^[Yy]$ ]] ; then
-	open ./src
+	open .
 	fi
 
 fi
@@ -985,7 +985,7 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 	read "?Open folder $DOSBOXFOLDER/src, where you can run $APPNAME.app (y/N)? " 
 	echo 
 	if [[ $REPLY =~ ^[Yy]$ ]] ; then
-	open ./src
+	open .
 	fi
 
 fi
