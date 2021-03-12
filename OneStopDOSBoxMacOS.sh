@@ -805,6 +805,7 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     echo 'core=dynamic'>>testdosbox.conf
     echo '[autoexec]'>>testdosbox.conf
     echo 'config -get cpu'>>testdosbox.conf
+	echo 'ver'>>testdosbox.conf
     ./dosbox -conf ./testdosbox.conf
 	cd ..
 fi
