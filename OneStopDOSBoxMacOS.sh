@@ -188,7 +188,7 @@ if [ $UNINST != 1 ] ; then
 	fi
 	cd $BUILDFOLDER/autoconf-$ACVER
 	distclean
-	./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+	./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 	make -j9 -s >/dev/null 
 	make install >/dev/null    
 	make clean  >/dev/null
@@ -234,7 +234,7 @@ if [ $DOWNLOAD = 1 ] ; then
 fi
 cd $BUILDFOLDER/automake-$AMVER
 distclean
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 make -j9 -s >/dev/null
 make install >/dev/null
 make clean  >/dev/null
@@ -280,7 +280,7 @@ cd $BUILDFOLDER/libtool-$LTVER
 make clean
 ARGS=''
 ARGS='F77=no FC=no GCJ=no --program-prefix=g'
-./configure --prefix=$BUILDFOLDER/x86_64 
+./configure -q --prefix=$BUILDFOLDER/x86_64 
 #### ${=ARGS}
 make -j9 -s >/dev/null
 make install >/dev/null
@@ -320,7 +320,7 @@ mkdir -p $BUILDFOLDER/x86_64/share/pkgconfig
 distclean
 ARGS=''
 ARGS='--with-pc-path=$BUILDFOLDER/x86_64/share/pkgconfig --with-internal-glib --disable-silent-rules --disable-host-tool'
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 make -j9 -s >/dev/null 
 make install >/dev/null
 make clean >/dev/null 
@@ -439,7 +439,7 @@ else
 fi
 
 ARGS=""
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 make -j9 -s >/dev/null
 make install >/dev/null
 make clean  >/dev/null
@@ -476,7 +476,7 @@ fi
 cd $BUILDFOLDER/libvorbis-$LVVER
 distclean
 ARGS=""
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS} --disable-oggtest  ### ask Dominus
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS} --disable-oggtest  ### ask Dominus
 make -j9 -s >/dev/null
 make install >/dev/null
 make clean >/dev/null
@@ -512,7 +512,7 @@ fi
 cd $BUILDFOLDER/libpng-$LPVER
 unset CFLAGS
 ARGS=""
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 make -j9 -s >/dev/null 
 make install >/dev/null 
 make clean >/dev/null
@@ -600,7 +600,7 @@ distclean
 ARGS=''
 ARGS='--enable-static --enable-joystick --enable-video-cocoa --enable-video-opengl --disable-video-x11 --without-x --disable-nasm'
 echo "Now running configure"
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 echo "Now running make"
 make clean >/dev/null
 make -j9 -s >/dev/null 
@@ -644,7 +644,7 @@ cd $BUILDFOLDER/SDL_sound-$SSVER
 distclean
 ARGS=''
 ARGS='--disable-mikmod --disable-modplug --disable-flac --disable-speex --disable-physfs --disable-smpeg --disable-sdltest'
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 make -j9 -s >/dev/null
 make install >/dev/null
 make clean >/dev/null 
@@ -679,7 +679,7 @@ if [ $DOWNLOAD = 1 ] ; then
 fi
 cd $BUILDFOLDER/SDL_net-$SNVER
 distclean
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 make -j9 -s >/dev/null
 make install >/dev/null
 make clean >/dev/null 
@@ -788,7 +788,7 @@ cd $DOSBOXFOLDER
 ### automake -f 
 ./autogen.sh
 chmod +x ./configure
-./configure --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
+./configure -q --prefix=$BUILDFOLDER/x86_64 ${=ARGS}
 	
 make clean && make -j9 -s || {
 DIE=1
@@ -982,10 +982,10 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 	echo "Portable $APPNAME.app created."
 	echo 
 
-	read "?Run portable $APPNAME.app in $DOSBOXFOLDER/src (y/N)? "
+	read "?Open folder $DOSBOXFOLDER/src, where you can run $APPNAME.app (y/N)? " 
 	echo 
 	if [[ $REPLY =~ ^[Yy]$ ]] ; then
-		open ./$APPNAME.app
+	open ./src
 	fi
 
 fi
