@@ -933,7 +933,7 @@ echo '<dict>' >> Info.plist
 echo '	<key>CFBundleDevelopmentRegion</key>' >> Info.plist
 echo '	<string>English</string>' >> Info.plist
 echo '	<key>CFBundleDisplayName</key>' >> Info.plist
-echo '	<string>DOSBox</string>' >> Info.plist
+echo '	<string>'$APPNAME'</string>' >> Info.plist
 echo '	<key>CFBundleExecutable</key>' >> Info.plist
 echo '	<string>DOSBox</string>' >> Info.plist
 echo '	<key>CFBundleGetInfoString</key>' >> Info.plist
@@ -943,7 +943,7 @@ echo '	<string>dosbox.icns</string>' >> Info.plist
 echo '	<key>CFBundleInfoDictionaryVersion</key>' >> Info.plist
 echo '	<string>6.0</string>' >> Info.plist
 echo '	<key>CFBundleName</key>' >> Info.plist
-echo '	<string>DOSBox</string>' >> Info.plist
+echo '	<string>'$APPNAME'</string>' >> Info.plist
 echo '	<key>CFBundlePackageType</key>' >> Info.plist
 echo '	<string>APPL</string>' >> Info.plist
 echo '	<key>CFBundleShortVersionString</key>' >> Info.plist
