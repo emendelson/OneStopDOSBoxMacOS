@@ -551,7 +551,7 @@ if [ $DOWNLOAD = 1 ] ; then
     rm master.zip
 fi
 cd $BUILDFOLDER/macdylibbundler-master
-distclean
+make clean
 ARGS=""
 make -j9 -s >/dev/null
 echo
@@ -797,7 +797,7 @@ error_quit "$(( $LINENO -2 )) : make failed."
 echo && echo Dynamic-linked dosbox built in $DOSBOXFOLDER/src
 echo
 
-read "?Run dynamic-linked dosbox in $DOSBOXFOLDER/src (y/N)? " 
+read "?Run dynamic-linked dosbox executable in $DOSBOXFOLDER/src (y/N)? " 
 echo 
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
 	cd ./src
@@ -962,11 +962,11 @@ echo '</plist>' >> Info.plist
 cd ../..
 
 # echo && echo
-read "?Run $APPNAME.app in $DOSBOXFOLDER/src (y/N)? "
-echo 
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-	open ./$APPNAME.app
-fi
+read "?Open folder $DOSBOXFOLDER/src, where you can run $APPNAME.app (y/N)? " 
+	echo 
+	if [[ $REPLY =~ ^[Yy]$ ]] ; then
+	open ./src
+	fi
 
 fi
 
