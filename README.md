@@ -1,1 +1,1 @@
-In 2021 this script built DOSBox from source. It has not been updated since, and almost certainly doesn't work in later macOS versions.
+This script builds DOSBox for macOS from source. It seems to work correctly in 2025, but may or may not work in future versions.
